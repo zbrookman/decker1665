@@ -28,15 +28,69 @@ const prices = {
     },
 };
 
+const styleLabels = {
+    antiqua_medio: "Antiqua only, in medio",
+    antiqua_initio: "Antiqua, ab initio",
+    antiqua_principio: "Antiqua, à principio",
+    cursive_medio: "Cursive or mixed, in medio",
+    cursive_initio: "Cursive or mixed, ab initio",
+    cursive_mixed: "Cursive, or mixed",
+};
+
+function updateStyleOptions() {
+    const font = document.getElementById('font').value;
+    const styleDropdown = document.getElementById('style');
+    styleDropdown.innerHTML = ''; // Clear existing options
+
+    const availableStyles = Object.keys(prices[font]);
+
+    for (const styleKey of availableStyles) {
+        const option = document.createElement('option');
+        option.value = styleKey;
+        option.textContent = styleLabels[styleKey];
+        styleDropdown.appendChild(option);
+    }
+    updatePreview(); // Update preview when styles change
+}
+
+function updatePreview() {
+    const font = document.getElementById('font').value;
+    const style = document.getElementById('style').value;
+    const previewContent = document.getElementById('preview-content');
+
+    // Remove all existing font and position classes
+    previewContent.className = '';
+
+    // Add font class
+    previewContent.classList.add(`font-${font}`);
+
+    // Add position class
+    if (style.includes('medio')) {
+        previewContent.classList.add('pos-in-medio');
+    } else if (style.includes('initio') || style.includes('principio')) {
+        previewContent.classList.add('pos-ab-initio');
+    }
+
+    // Add style class
+    if (style.includes('cursive')) {
+        previewContent.classList.add('style-cursive');
+    }
+}
+
+
+window.onload = function() {
+    updateStyleOptions();
+};
+
 function calculateQuote() {
-    const paperType = document.getElementById('paper-type').value;
+    const font = document.getElementById('font').value;
     const style = document.getElementById('style').value;
     const sheets = parseInt(document.getElementById('sheets').value);
     const marginalia = document.getElementById('marginalia').checked;
 
     let pricePerSheet = 0;
-    if (prices[paperType] && prices[paperType][style]) {
-        pricePerSheet = prices[paperType][style];
+    if (prices[font] && prices[font][style]) {
+        pricePerSheet = prices[font][style];
     }
 
     if (marginalia) {

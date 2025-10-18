@@ -3,24 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Johann Jakob Decker's Printing Services</title>
+    <title>Johann Jakob Decker (I)'s Printing Services</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <h1>Anno 1665: Printing Services of Johann Jakob Decker</h1>
+        <h1>Anno 1665: Printing Services of Johann Jakob Decker (I)</h1>
         <h2>Printer to the University of Basel</h2>
     </header>
 
     <main>
         <section id="intro">
             <h3>A notice to all scholars and esteemed persons of Basel!</h3>
+            <img src="contract.png" alt="The original 1665 printing contract of Johann Jakob Decker (I)">
             <p>
-                Verzeichnuss der Vergleichung, Welche zwischen einer Ehrwürdigen Regentz Loblicher Universitet Basel, und Johann Jacob Deckern, wolermeldter Universitet bestelten Buchdruckern, beschehen: Was namblich und wie viel er der Buchdrucker, von einem jeden Bogen Thesium, ad disputandum publicè propositarum, oder sonst anderer Materi und Sachen, zu drucken für seine Belohnung, so wol von Frömbden, als Eynheymischen, forderen und nemmen solle.
-            </p>
-            <p>
-                <em>List of the settlement concluded between the Reverend Regent of the University of Basel and Johann Jacob Deckern, a printer appointed by the aforementioned university: Namely, what and how much the printer should demand and take from each sheet of Theses, proposed for public debate, or other materials and things, for printing as his remuneration, both from and foreign the Confederate states.</em>
+                List of the settlement concluded between the Reverend Regent of the University of Basel and Johann Jakob Deckern (I), a printer appointed by the aforementioned university: Namely, what and how much the printer should demand and take from each sheet of Theses, proposed for public debate, or other materials and things, for printing as his remuneration, both from and foreign the Confederate states.
             </p>
         </section>
 
@@ -29,7 +27,7 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Paper Type</th>
+                        <th>Font</th>
                         <th>Style</th>
                         <th>Price per Sheet (in Batzen)</th>
                     </tr>
@@ -116,8 +114,8 @@
         <section id="quote">
             <h3>Get a Quote for Your Thesis</h3>
             <form id="quote-form">
-                <label for="paper-type">Paper Type:</label>
-                <select id="paper-type" name="paper-type">
+                <label for="font">Font:</label>
+                <select id="font" name="font" onchange="updateStyleOptions(); updatePreview();">
                     <option value="garamont">Garamont</option>
                     <option value="cicero">Cicero</option>
                     <option value="mittel">Mittel</option>
@@ -126,13 +124,7 @@
                 </select>
 
                 <label for="style">Style:</label>
-                <select id="style" name="style">
-                    <option value="antiqua_medio">Antiqua only, in medio</option>
-                    <option value="antiqua_initio">Antiqua, ab initio</option>
-                    <option value="antiqua_principio">Antiqua, à principio</option>
-                    <option value="cursive_medio">Cursive or mixed, in medio</option>
-                    <option value="cursive_initio">Cursive or mixed, ab initio</option>
-                    <option value="cursive_mixed">Cursive, or mixed</option>
+                <select id="style" name="style" onchange="updatePreview()">
                 </select>
 
                 <label for="sheets">Number of Sheets:</label>
@@ -148,6 +140,18 @@
             <div id="quote-result"></div>
         </section>
 
+        <section id="preview">
+            <h3>Title Page Preview</h3>
+            <div id="preview-page">
+                <div id="preview-content">
+                    <h1>Your Thesis Title</h1>
+                    <h2>by Your Name</h2>
+                    <p>A thesis presented to the University of Basel</p>
+                    <p>Anno 1665</p>
+                </div>
+            </div>
+        </section>
+
         <section id="terms">
             <h3>Terms of Service</h3>
             <ol>
@@ -156,7 +160,7 @@
                 <li>That he shall be entitled to charge 3 schillings per sheet for printing paper, and 5 schillings per sheet for writing paper.</li>
                 <li>That he shall take care especially not to delay the candidates with their work; likewise, the gentlemen deans of each faculty shall so arrange matters that he is not overwhelmed or overburdened at any one time.</li>
                 <li>That he shall not be obliged to release the printed copies (whatever they may be) until he has been duly satisfied and paid for them.</li>
-                <li>In the event that anyone whatsoever should give his theses, disputation-papers, programs, or similar items to be printed by another printer than the aforementioned Johann Jacob Decker, that person shall, according to the judgment of the Honorable Regent, have to expect the appropriate penalty.</li>
+                <li>In the event that anyone whatsoever should give his theses, disputation-papers, programs, or similar items to be printed by another printer than the aforementioned Johann Jakob Decker (I), that person shall, according to the judgment of the Honorable Regent, have to expect the appropriate penalty.</li>
                 <li>If any dispute or contention should arise between those who wish to have something printed and the said printer, the matter shall always be decided by the Magnificent Rector of the University and the dean of the respective faculty.</li>
             </ol>
         </section>
