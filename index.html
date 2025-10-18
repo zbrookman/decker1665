@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Johann Jakob Decker's Printing Services</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Anno 1665: Printing Services of Johann Jakob Decker</h1>
+        <h2>Printer to the University of Basel</h2>
+    </header>
+
+    <main>
+        <section id="intro">
+            <h3>A notice to all scholars and esteemed persons of Basel!</h3>
+            <p>
+                Verzeichnuss der Vergleichung, Welche zwischen einer Ehrwürdigen Regentz Loblicher Universitet Basel, und Johann Jacob Deckern, wolermeldter Universitet bestelten Buchdruckern, beschehen: Was namblich und wie viel er der Buchdrucker, von einem jeden Bogen Thesium, ad disputandum publicè propositarum, oder sonst anderer Materi und Sachen, zu drucken für seine Belohnung, so wol von Frömbden, als Eynheymischen, forderen und nemmen solle.
+            </p>
+            <p>
+                <em>List of the settlement concluded between the Reverend Regent of the University of Basel and Johann Jacob Deckern, a printer appointed by the aforementioned university: Namely, what and how much the printer should demand and take from each sheet of Theses, proposed for public debate, or other materials and things, for printing as his remuneration, both from and foreign the Confederate states.</em>
+            </p>
+        </section>
+
+        <section id="prices">
+            <h3>Price List for Theses Printing</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Paper Type</th>
+                        <th>Style</th>
+                        <th>Price per Sheet (in Batzen)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="4">Garamont</td>
+                        <td>Antiqua only, in medio</td>
+                        <td>38</td>
+                    </tr>
+                    <tr>
+                        <td>Antiqua, ab initio</td>
+                        <td>40</td>
+                    </tr>
+                    <tr>
+                        <td>Cursive or mixed, in medio</td>
+                        <td>41</td>
+                    </tr>
+                    <tr>
+                        <td>Cursive or mixed, ab initio</td>
+                        <td>42</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="4">Cicero</td>
+                        <td>Antiqua only, in medio</td>
+                        <td>27</td>
+                    </tr>
+                    <tr>
+                        <td>Antiqua, ab initio</td>
+                        <td>28</td>
+                    </tr>
+                    <tr>
+                        <td>Cursive, in medio</td>
+                        <td>29</td>
+                    </tr>
+                    <tr>
+                        <td>Cursive, ab initio</td>
+                        <td>30</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="4">Mittel</td>
+                        <td>Antiqua only, in medio</td>
+                        <td>23</td>
+                    </tr>
+                    <tr>
+                        <td>Antiqua, ab initio</td>
+                        <td>24</td>
+                    </tr>
+                    <tr>
+                        <td>Cursive, in medio</td>
+                        <td>25</td>
+                    </tr>
+                    <tr>
+                        <td>Cursive, ab initio</td>
+                        <td>26</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">Bible</td>
+                        <td>Antiqua only, in medio</td>
+                        <td>17</td>
+                    </tr>
+                    <tr>
+                        <td>Antiqua only, à principio</td>
+                        <td>18</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="3">Text</td>
+                        <td>Antiqua only, in medio</td>
+                        <td>16</td>
+                    </tr>
+                    <tr>
+                        <td>Antiqua, ab initio</td>
+                        <td>17</td>
+                    </tr>
+                    <tr>
+                        <td>Cursive, or mixed</td>
+                        <td>18</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><strong>Note on Marginalia:</strong> Where marginalia have been added to a sheet, the price may be increased by a third and a half batzen (2.5 Batzen).</p>
+        </section>
+
+        <section id="quote">
+            <h3>Get a Quote for Your Thesis</h3>
+            <form id="quote-form">
+                <label for="paper-type">Paper Type:</label>
+                <select id="paper-type" name="paper-type">
+                    <option value="garamont">Garamont</option>
+                    <option value="cicero">Cicero</option>
+                    <option value="mittel">Mittel</option>
+                    <option value="bible">Bible</option>
+                    <option value="text">Text</option>
+                </select>
+
+                <label for="style">Style:</label>
+                <select id="style" name="style">
+                    <option value="antiqua_medio">Antiqua only, in medio</option>
+                    <option value="antiqua_initio">Antiqua, ab initio</option>
+                    <option value="antiqua_principio">Antiqua, à principio</option>
+                    <option value="cursive_medio">Cursive or mixed, in medio</option>
+                    <option value="cursive_initio">Cursive or mixed, ab initio</option>
+                    <option value="cursive_mixed">Cursive, or mixed</option>
+                </select>
+
+                <label for="sheets">Number of Sheets:</label>
+                <input type="number" id="sheets" name="sheets" min="1" value="1">
+
+                <label for="marginalia">
+                    <input type="checkbox" id="marginalia" name="marginalia">
+                    Add Marginalia (2.5 Batzen per sheet)
+                </label>
+
+                <button type="button" onclick="calculateQuote()">Calculate Quote</button>
+            </form>
+            <div id="quote-result"></div>
+        </section>
+
+        <section id="terms">
+            <h3>Terms of Service</h3>
+            <ol>
+                <li>That the theses of candidates or others who wish to hold a disputation or otherwise have something printed shall be delivered to him neatly, legibly, and clearly. If this is not the case, or if something new is altered in the copy, he shall be entitled, in fairness, to additional payment.</li>
+                <li>That for tips (Trankgeld), as a debt, he shall not be entitled to demand anything, but it shall be left to the goodwill and discretion of those having something printed.</li>
+                <li>That he shall be entitled to charge 3 schillings per sheet for printing paper, and 5 schillings per sheet for writing paper.</li>
+                <li>That he shall take care especially not to delay the candidates with their work; likewise, the gentlemen deans of each faculty shall so arrange matters that he is not overwhelmed or overburdened at any one time.</li>
+                <li>That he shall not be obliged to release the printed copies (whatever they may be) until he has been duly satisfied and paid for them.</li>
+                <li>In the event that anyone whatsoever should give his theses, disputation-papers, programs, or similar items to be printed by another printer than the aforementioned Johann Jacob Decker, that person shall, according to the judgment of the Honorable Regent, have to expect the appropriate penalty.</li>
+                <li>If any dispute or contention should arise between those who wish to have something printed and the said printer, the matter shall always be decided by the Magnificent Rector of the University and the dean of the respective faculty.</li>
+            </ol>
+        </section>
+    </main>
+
+    <footer>
+        <p>Basel, 1665</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
